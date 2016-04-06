@@ -5,39 +5,40 @@
  */
 package adivinaelnumerosecreto;
 
+import adivinaelnumerosecreto.model.juego;
 import java.util.Scanner;
-
+import model.Juego;
 /**
  *
  * @author Ariana martin
  */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-Scanner entrada = new Scanner(System.in);
-int numero;
-boolean seAdivinoElNumeroSecreto = false;
-juego juego = new juego(1, 100, 5);
-while (juego.puedeIntentarDeNuevo() == true
-&& !seAdivinoElNumeroSecreto) {
-System.out.print("Adivine el número secreto: ");
-numero = entrada.nextInt();
-seAdivinoElNumeroSecreto = juego.esElNumeroSecreto(numero);
-if (seAdivinoElNumeroSecreto) {
-System.out.println("Felicidades. Has adivinado el número secreto.");
-}
-else {
-System.out.println("Fallaste. El número secreto es "
-      + juego.getTextoDeAyuda(numero)
-      + " que el número propocionado");
-System.out.println("Intenta de nuevo.");
-}
-}
-System.out.println("El número secreto es " + juego.getNumeroSecreto());
-
-    }
     
+        
+        Scanner leer = new Scanner(System.in);
+        int numero;
+        boolean seAdivinoElNumeroSecreto = false;
+      Juego juego = new Juego(1, 5, 2);
+        while(juego.puedeIntentarDeNuevo()== true && seAdivinoElNumeroSecreto == false){
+            System.out.println("Adivine el numero secreto: ");
+            numero = leer.nextInt();
+            seAdivinoElNumeroSecreto = juego.esElNumeroSecreto(numero);
+            if (seAdivinoElNumeroSecreto){
+                System.out.println("Felicidades. Has adivinado el número secreto.");
+            }
+        else{
+                System.out.println("Fallaste. El numero secreto es: " + juego.getTexoDeAyuda(numero) + " que el numero proporcionado");
+             System.out.println("Intenta de nuevo.");
+                
+            }
+            
+           
+    }
+        System.out.println("");
+  System.out.println("El número secreto es " + juego.getNumeroSecreto()); 
+              
+    
+    }
 }
